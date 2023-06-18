@@ -4,13 +4,13 @@
 
 ## Используемый стек
 
-+React
-+Typescript
-+Redux toolkit
-+React Hook Form
-+SCSS Modules
-+React Router DOM
-+Yup
++ React
++ Typescript
++ Redux toolkit
++ React Hook Form
++ SCSS Modules
++ React Router DOM
++ Yup
 
 ## Демо
 
