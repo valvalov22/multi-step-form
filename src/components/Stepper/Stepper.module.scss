@@ -1,0 +1,127 @@
+.sendFormButton {
+  width: 117px;
+  height: 44px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.mainForm {
+  max-width: 620px;
+  // display: flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  min-width: 680px;
+
+  @media (max-width: 1024px) {
+    min-width: 0;
+  }
+}
+
+.stepItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &:not(:first-child):before {
+    content: "";
+    background-color: #ebeaea;
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    right: 50%;
+    top: 12%;
+    transform: translateY(-50%);
+  }
+}
+
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: #888;
+}
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+.select-css option {
+  font-weight: normal;
+}
+*[dir="rtl"] .select-css,
+:root:lang(ar) .select-css,
+:root:lang(iw) .select-css {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
+}
+
+.step {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  z-index: 10;
+  position: relative;
+  //   background-color: #5558fa;
+  background-color: #a3a3a3;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+}
+
+.active .step {
+  background-color: #5558fa;
+
+  &::before {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    width: 3px;
+    height: 3px;
+    z-index: 11;
+  }
+}
+
+.complete .step {
+  background-color: #5558fa;
+  //   &::before {
+  //     content: "\2713";
+  //     width: 8px;
+  //     height: 8px;
+  //     z-index: 11;
+  //   }
+}
+
+.complete:not(:first-child)::before,
+.active:not(:first-child)::before {
+  content: "";
+  background-color: #5558fa;
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  right: 50%;
+  top: 12%;
+  transform: translateY(-50%);
+}
+
+.complete p {
+  color: #5558fa;
+}
+
+.active p {
+  color: #5558fa;
+}

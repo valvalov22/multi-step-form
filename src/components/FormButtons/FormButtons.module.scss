@@ -1,0 +1,46 @@
+.formButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+
+  // @media (max-width: 1024px) {
+  //   width: 94%;
+  // }
+
+  @media (max-width: 768px) {
+    width: 94%;
+  }
+
+  @media (max-width: 425px) {
+    width: 100%;
+  }
+}
+
+.formBackButton {
+  background-color: #fff;
+  color: #5558fa;
+  border-color: #5558fa;
+  border-radius: 4px;
+  &:hover {
+    background-color: #5558fa;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    width: 98px;
+  }
+}
+
+.submitFormButton {
+  border-radius: 4px;
+  width: 160px;
+  &:hover {
+    background-color: #fff;
+    border-color: #5558fa;
+    color: #5558fa;
+  }
+
+  @media (max-width: 425px) {
+    width: 140px;
+  }
+}

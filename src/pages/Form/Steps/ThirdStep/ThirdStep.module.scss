@@ -1,0 +1,67 @@
+.thirdStep {
+  textarea {
+    display: block;
+    width: 95%;
+    height: 74px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    // resize: none;
+
+    @media (max-width: 375px) {
+      width: 90%;
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.symbolsCounter {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 12px;
+  bottom: 2%;
+  right: 3%;
+  transform: translate(-50%);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.mainForm {
+  max-width: 620px;
+  // display: flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.marked {
+  &::after {
+    content: " *";
+    color: #e9573f;
+  }
+}
+
+.textarea {
+  font-size: 14px;
+  margin-top: 12px;
+  padding: 0.375rem 0.75rem;
+}
+
+.error {
+  font-size: 10px;
+  color: red;
+}
+
+.complete p {
+  color: #5558fa;
+}
+
+.active p {
+  color: #5558fa;
+}

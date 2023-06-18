@@ -1,0 +1,13 @@
+#root {
+  width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  // text-align: center;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+
+  @media (max-width: 1024px) {
+    width: 79%;
+  }
+}
