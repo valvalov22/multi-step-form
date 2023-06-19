@@ -7,7 +7,6 @@ const initialState: TFirstStepSliceState = {
   name: "",
   surname: "",
   sex: Sex.man,
-  phone: "9120154853",
 };
 
 const firstStepSlice = createSlice({

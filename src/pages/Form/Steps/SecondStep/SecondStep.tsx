@@ -32,8 +32,8 @@ const SecondStep = () => {
       .string()
       .min(1, Tips.REQUIRED)
       .max(50, `${Tips.MAX_LENGTH} 50`)
-      .required("Поле должно быть заполнено")
-      .typeError("Поле должно быть заполнено"),
+      .required(Tips.REQUIRED)
+      .typeError(Tips.REQUIRED),
   };
 
   const schema = yup.object().shape({
@@ -42,7 +42,7 @@ const SecondStep = () => {
       .of(yup.object().shape(formSchema))
       .required()
       .min(1, Tips.REQUIRED)
-      .max(50, Tips.REQUIRED)
+      // .max(50, Tips.REQUIRED)
       .typeError(Tips.REQUIRED),
     checkbox: yup.number().required().typeError(Tips.CHECKBOX_AND_RADIO),
     radio: yup.number().required(Tips.CHECKBOX_AND_RADIO),

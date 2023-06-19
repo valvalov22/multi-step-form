@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { BASE_URL } from "../../../utils/consts";
 import axios from "axios";
-import { IFinalData } from "./types";
+import { IAllValues, IFinalData } from "./types";
 
 export const sendForm = createAsyncThunk(
   "formValuesSlice/sendForm",
@@ -14,29 +14,6 @@ export const sendForm = createAsyncThunk(
     return data;
   }
 );
-
-export enum Sex {
-  nothing = "Не выбрано",
-  man = "Man",
-  woman = "Woman",
-}
-
-interface IAdvantage {
-  value: string;
-}
-
-export interface IAllValues {
-  nickname: string;
-  name: string;
-  surname: string;
-  sex: Sex;
-  phone: string;
-  about: string;
-  advantages: IAdvantage[];
-  // advantages: string[];
-  checkbox: number[];
-  radio: number;
-}
 
 export type TAllValues = {
   allValues: IAllValues[];

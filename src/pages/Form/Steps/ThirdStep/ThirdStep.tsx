@@ -31,12 +31,14 @@ import {
 import { changeCurrentStep } from "../../../../redux/slices/stepperSlice/stepperSlice";
 import { IThirdStepValues } from "./types";
 import { handleData } from "../../../../utils/helpers/handleData";
+import { mainForm } from "../../../../redux/slices/mainFormslice";
 
 const ThirdStep = () => {
   const dispatch = useAppDispatch();
   const third = useSelector(thirdStep);
   const second = useSelector(secondStep);
   const values = useSelector(formValues);
+  const main = useSelector(mainForm);
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -73,6 +75,7 @@ const ThirdStep = () => {
     handleData(finalData, values);
 
     finalData.advantages = advantagesTemp;
+    finalData.email = main.email;
     finalData.about = third.about;
     finalData.radio = Number(finalData.radio);
 
@@ -90,6 +93,7 @@ const ThirdStep = () => {
         dispatch(cleanFieldsSecondStep());
         dispatch(cleanFieldsThirdStep());
         dispatch(setLoading(false));
+        console.log(res);
       }
 
       if (res.meta.requestStatus === "rejected") {

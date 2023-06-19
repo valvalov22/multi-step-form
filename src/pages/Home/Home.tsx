@@ -5,8 +5,12 @@ import { Tips, USER, regex } from "../../utils/consts";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputMask from "react-input-mask";
-import { useDispatch } from "react-redux";
-import { changeEmail, changePhone } from "../../redux/slices/mainFormslice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeEmail,
+  changePhone,
+  mainForm,
+} from "../../redux/slices/mainFormslice";
 import { saveData } from "../../redux/slices/formValues/formValues";
 import { getFirstLetters } from "../../utils/helpers/getFirstLetters";
 import { IconContext } from "react-icons";
@@ -17,6 +21,7 @@ const Home = () => {
   const startButton = () => {
     navigate("/create");
   };
+  const main = useSelector(mainForm);
 
   const dispatch = useDispatch();
 
@@ -25,11 +30,7 @@ const Home = () => {
     email: string;
   }
   const schema = yup.object().shape({
-    email: yup
-      .string()
-      .email(Tips.REQUIRED)
-      .matches(regex.email, Tips.EMAIL)
-      .required(Tips.REQUIRED),
+    email: yup.string().email(Tips.REQUIRED).matches(regex.email, Tips.EMAIL),
     phone: yup
       .string()
       .min(18, Tips.REQUIRED)
@@ -100,11 +101,11 @@ const Home = () => {
         <div className={classes.personalInfo}>
           <label htmlFor="phone">Номер телефона</label>
           <InputMask
-            // disabled
+            disabled
             {...register("phone")}
             mask="+7 (999) 999-99-99"
             maskChar={null}
-            value={USER.phone}
+            value={main.phone}
             onChange={(e) => {
               dispatch(changePhone(e.target.value));
             }}
@@ -112,8 +113,9 @@ const Home = () => {
           <p className={classes.error}>{errors.phone?.message}</p>
           <label htmlFor="email">Email</label>
           <input
+            disabled
+            value={main.email}
             {...register("email")}
-            value={USER.email}
             onChange={(e) => {
               dispatch(changeEmail(e.target.value));
             }}
