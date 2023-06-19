@@ -24,7 +24,10 @@ import successImg from "../../../../img/success.svg";
 import rejectedImg from "../../../../img/rejected.svg";
 import { useAppDispatch } from "../../../../redux/store";
 import { cleanFieldsFirstStep } from "../../../../redux/slices/firstStepSlice/firstStepSlice";
-import { cleanFieldsSecondStep } from "../../../../redux/slices/secondStepSlice/secondStepSlice";
+import {
+  cleanFieldsSecondStep,
+  secondStep,
+} from "../../../../redux/slices/secondStepSlice/secondStepSlice";
 import { changeCurrentStep } from "../../../../redux/slices/stepperSlice/stepperSlice";
 import { IThirdStepValues } from "./types";
 import { handleData } from "../../../../utils/helpers/handleData";
@@ -32,6 +35,7 @@ import { handleData } from "../../../../utils/helpers/handleData";
 const ThirdStep = () => {
   const dispatch = useAppDispatch();
   const third = useSelector(thirdStep);
+  const second = useSelector(secondStep);
   const values = useSelector(formValues);
   const navigate = useNavigate();
 
@@ -71,6 +75,14 @@ const ThirdStep = () => {
     finalData.advantages = advantagesTemp;
     finalData.about = third.about;
     finalData.radio = Number(finalData.radio);
+
+    const checkboxTemp = second.isChecked
+      .map((item, i) => {
+        return item === true ? i + 1 : 0;
+      })
+      .filter((checkbox) => checkbox !== 0);
+
+    finalData.checkbox = checkboxTemp;
 
     dispatch(sendForm(finalData)).then((res) => {
       if (res.meta.requestStatus === "fulfilled") {

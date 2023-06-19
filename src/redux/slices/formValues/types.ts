@@ -5,7 +5,7 @@ export interface IFinalData {
   nickname: string;
   phone: string;
   email: string;
-  checkbox: string[];
+  checkbox: number[];
   radio: number;
   surname: string;
   about: string;

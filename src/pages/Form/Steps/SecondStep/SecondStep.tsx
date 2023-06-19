@@ -44,14 +44,7 @@ const SecondStep = () => {
       .min(1, Tips.REQUIRED)
       .max(50, Tips.REQUIRED)
       .typeError(Tips.REQUIRED),
-    checkbox: yup
-      .array()
-      .of(yup.number())
-      .min(1, "Обязательное поле")
-      .of(yup.number().required())
-      .required()
-      .typeError(Tips.CHECKBOX_AND_RADIO),
-
+    checkbox: yup.number().required().typeError(Tips.CHECKBOX_AND_RADIO),
     radio: yup.number().required(Tips.CHECKBOX_AND_RADIO),
   });
 
@@ -140,7 +133,7 @@ const SecondStep = () => {
         <p className={classes.error}>{errors?.advantages?.message}</p>
 
         <div className={classes.checkboxGroup}>
-          <span>Checkbox group</span>
+          <span className={classes.marked}>Checkbox group</span>
           {second.checkbox.map((item, i) => (
             <div key={i}>
               <input

@@ -1,5 +1,5 @@
 export interface IFormValues {
-  checkbox: number[];
+  checkbox: number;
   radio: number;
   advantages: {
     value: string;
