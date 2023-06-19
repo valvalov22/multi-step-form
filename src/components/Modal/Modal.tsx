@@ -9,27 +9,48 @@ interface IModalProps {
   heading: string;
   onClose: () => void;
   button: React.ReactNode;
+  close?: React.ReactNode;
   isOpen: boolean;
+  rejected: boolean;
 }
 
-const Modal: React.FC<IModalProps> = ({ img, heading, button, isOpen }) => {
+const Modal: React.FC<IModalProps> = ({
+  img,
+  heading,
+  button,
+  isOpen,
+  rejected,
+  close,
+}) => {
   const thirdStepData = useSelector(thirdStep);
 
   return (
     <>
       {isOpen ? (
         <div className={classes.modal}>
-          <div className={classes.wrapper}>
-            {thirdStepData.loading ? (
-              <Loader />
-            ) : (
-              <>
-                <h2 className={classes.text}>{heading}</h2>
-                <img src={img} alt="status img" />
-                <div className={classes.button}>{button}</div>
-              </>
-            )}
-          </div>
+          {thirdStepData.loading ? (
+            <Loader />
+          ) : (
+            <div className={classes.wrapper}>
+              <h2
+                className={
+                  rejected ? `${classes.textRejected}` : `${classes.text}`
+                }
+              >
+                {heading}
+              </h2>
+              {rejected ? <div className={classes.close}>{close}</div> : null}
+
+              <img src={img} alt="status img" />
+              <div
+                className={
+                  rejected ? `${classes.buttonRejected}` : `${classes.button}`
+                }
+              >
+                {button}
+              </div>
+            </div>
+          )}
         </div>
       ) : null}
     </>

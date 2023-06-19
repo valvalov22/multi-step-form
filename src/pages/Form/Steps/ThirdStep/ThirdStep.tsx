@@ -32,6 +32,8 @@ import { changeCurrentStep } from "../../../../redux/slices/stepperSlice/stepper
 import { IThirdStepValues } from "./types";
 import { handleData } from "../../../../utils/helpers/handleData";
 import { mainForm } from "../../../../redux/slices/mainFormslice";
+import { IoIosClose } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 const ThirdStep = () => {
   const dispatch = useAppDispatch();
@@ -131,6 +133,7 @@ const ThirdStep = () => {
 
       <Modal
         isOpen={third.isOpen}
+        rejected={false}
         button={
           <button
             id="button-to-main"
@@ -150,6 +153,18 @@ const ThirdStep = () => {
 
       <Modal
         isOpen={third.rejectedIsOpen}
+        rejected={true}
+        close={
+          <div
+            onClick={() => {
+              closeModal();
+            }}
+          >
+            <IconContext.Provider value={{ size: "35px", color: "#b3b3b3" }}>
+              <IoIosClose />
+            </IconContext.Provider>
+          </div>
+        }
         button={
           <button
             id="button-close"
