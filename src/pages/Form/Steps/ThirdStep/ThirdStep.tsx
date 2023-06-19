@@ -93,7 +93,6 @@ const ThirdStep = () => {
         dispatch(cleanFieldsSecondStep());
         dispatch(cleanFieldsThirdStep());
         dispatch(setLoading(false));
-        console.log(res);
       }
 
       if (res.meta.requestStatus === "rejected") {
