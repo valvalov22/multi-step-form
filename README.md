@@ -14,7 +14,7 @@
 
 ## Демо
 
-https://silver-licorice-493d3f.netlify.app/
+https://multi-step-form-val22.netlify.app/
 
 ## Известные ошибки на данный момент
 
